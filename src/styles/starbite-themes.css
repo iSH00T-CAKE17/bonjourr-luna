@@ -1,0 +1,97 @@
+/* =========================================
+   STARBITE THEMES (fork)
+   Uses: #interface[data-sb-theme="..."]
+   ========================================= */
+
+/* Defaults */
+#interface{
+  --sb-text: #ffffff;
+  --sb-shadow: 0 10px 30px rgba(0,0,0,.35);
+  --sb-glow: 0 0 25px rgba(120,200,255,.25);
+
+  --sb-link-bg: rgba(0,0,0,.18);
+  --sb-link-bg-hover: rgba(0,0,0,.28);
+
+  --sb-link-img-bg: #e1ffe2;
+  --sb-link-img-bg-hover: #d6ffda;
+
+  --sb-ampm-color: rgba(255,255,255,.70);
+}
+
+/* COSMIC */
+#interface[data-sb-theme="cosmic"]{
+  --sb-text: #ffffff;
+  --sb-shadow: 0 10px 30px rgba(0,0,0,.35);
+  --sb-glow: 0 0 25px rgba(120,200,255,.25);
+  --sb-link-bg: rgba(0,0,0,.18);
+  --sb-link-bg-hover: rgba(0,0,0,.28);
+  --sb-link-img-bg: #e1ffe2;
+  --sb-link-img-bg-hover: #d6ffda;
+  --sb-ampm-color: rgba(255,255,255,.70);
+}
+
+/* DARKGLASS */
+#interface[data-sb-theme="darkglass"]{
+  --sb-text: #ffffff;
+  --sb-shadow: 0 14px 46px rgba(0,0,0,.58);
+  --sb-glow: 0 0 0 rgba(0,0,0,0);
+  --sb-link-bg: rgba(0,0,0,.34);
+  --sb-link-bg-hover: rgba(0,0,0,.46);
+  --sb-link-img-bg: rgba(255,255,255,.10);
+  --sb-link-img-bg-hover: rgba(255,255,255,.14);
+  --sb-ampm-color: rgba(255,255,255,.62);
+}
+
+/* LIGHTCLEAN */
+#interface[data-sb-theme="lightclean"]{
+  --sb-text: #0e1116;
+  --sb-shadow: 0 12px 34px rgba(0,0,0,.12);
+  --sb-glow: 0 0 0 rgba(0,0,0,0);
+  --sb-link-bg: rgba(255,255,255,.62);
+  --sb-link-bg-hover: rgba(255,255,255,.78);
+  --sb-link-img-bg: #e1ffe2;
+  --sb-link-img-bg-hover: #d6ffda;
+  --sb-ampm-color: rgba(14,17,22,.55);
+}
+
+/* Apply variables to UI */
+#interface{
+  color: var(--sb-text) !important;
+  text-shadow: var(--sb-shadow) !important;
+  filter: drop-shadow(var(--sb-glow)) !important;
+}
+
+#interface #widgets #linkblocks li.link a{
+  background: var(--sb-link-bg) !important;
+}
+#interface #widgets #linkblocks li.link a:hover{
+  background: var(--sb-link-bg-hover) !important;
+}
+#interface #widgets #linkblocks li.link a img{
+  background: var(--sb-link-img-bg) !important;
+}
+#interface #widgets #linkblocks li.link a:hover img{
+  background: var(--sb-link-img-bg-hover) !important;
+}
+
+/* Your AM/PM inline fix (kept) */
+#interface #time #time-container{
+  display:flex !important;
+  align-items:baseline !important;
+  justify-content:center !important;
+  gap:0.5em !important;
+}
+#interface #time #time-container .digital-ampm{
+  font-size:0.3em !important;
+  opacity:0.75 !important;
+  color: var(--sb-ampm-color) !important;
+  text-transform: lowercase !important;
+  position: static !important;
+  transform: none !important;
+  inset: auto !important;
+  display:inline-flex !important;
+  align-items:baseline !important;
+}
+#interface .digital-am, #interface .digital-pm{ display:inline !important; }
+#interface [data-ampm="am"] .digital-pm{ display:none !important; }
+#interface [data-ampm="pm"] .digital-am{ display:none !important; }
